@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+    <h1 class="titulo-post">{{ post.title }}</h1>
+
+    <div class="post-content">
+        <p class="meta">📅 {{ post.created_at|date:"d/m/Y" }} | 📂 {{ post.get_category_display }}</p>
+        <div class="contenido">
+            {{ post.content|linebreaks }}
+        </div>
+    </div>
+
+    <a href="{% url 'post_list' %}" class="volver">← Volver al listado</a>
+</body>
+</html>
